@@ -1,3 +1,28 @@
+input.onPinPressed(TouchPin.P0, function () {
+    if (x == przeciwnik_x && y == przeciwnik_y) {
+        brawo = 1
+        basic.clearScreen()
+        basic.showIcon(IconNames.Happy)
+        basic.pause(5000)
+        control.reset()
+    }
+    if (x == 0 && y == 0) {
+        led.toggle(x, y)
+        x = 0
+        y = 4
+        led.toggle(x, y)
+    } else {
+        if (y > 0) {
+            led.toggle(x, y)
+            y += -1
+            led.toggle(x, y)
+        } else {
+            led.toggle(x, y)
+            y = 4
+            led.toggle(x, y)
+        }
+    }
+})
 input.onButtonPressed(Button.A, function () {
     if (x == przeciwnik_x && y == przeciwnik_y) {
         brawo = 1
@@ -46,6 +71,31 @@ input.onButtonPressed(Button.B, function () {
             led.toggle(x, y)
             y += 1
             x = 0
+            led.toggle(x, y)
+        }
+    }
+})
+input.onPinPressed(TouchPin.P1, function () {
+    if (x == przeciwnik_x && y == przeciwnik_y) {
+        brawo = 1
+        basic.clearScreen()
+        basic.showIcon(IconNames.Happy)
+        basic.pause(5000)
+        control.reset()
+    }
+    if (x == 4 && y == 4) {
+        led.toggle(x, y)
+        x = 4
+        y = 0
+        led.toggle(x, y)
+    } else {
+        if (y < 4) {
+            led.toggle(x, y)
+            y += 1
+            led.toggle(x, y)
+        } else {
+            led.toggle(x, y)
+            y = 0
             led.toggle(x, y)
         }
     }
